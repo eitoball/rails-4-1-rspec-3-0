@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Contact do
   it 'has a valid factory' do
-    expect(FactoryGirl.build(:contact)).to be_valid
+    expect(build(:contact)).to be_valid
   end
 
   it 'is valid with a firstname, lastname and email' do
@@ -14,13 +14,13 @@ describe Contact do
   end
 
   it 'is invalid without a firstname' do
-    contact = FactoryGirl.build(:contact, firstname: nil)
+    contact = build(:contact, firstname: nil)
     contact.valid?
     expect(contact.errors[:firstname]).to include('can\'t be blank')
   end
 
   it 'is invalid without a lastname' do
-    contact = FactoryGirl.build(:contact, lastname: nil)
+    contact = build(:contact, lastname: nil)
     contact.valid?
     expect(contact.errors[:lastname]).to include('can\'t be blank')
   end
